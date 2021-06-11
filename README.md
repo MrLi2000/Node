@@ -10,7 +10,7 @@
   - passport 用户登录认证中间件
   - .....
 ## 目录结构
-app.js 主入口文件
+> controllers文件夹
 ## 启动
  - 项目主入口文件是：app.js
  - 需要将package.json文件中启动脚本修改：
