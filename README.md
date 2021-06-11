@@ -21,3 +21,8 @@
  ```shell
    npm start
  ```
+ - 访问
+ ```markdown
+   1. 打开浏览器输入网址： http://127.0.0.1:3000
+   2. 打开浏览器输入网址： http://localhost:3000
+ ```
