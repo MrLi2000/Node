@@ -17,3 +17,7 @@
       "start": "node ./app.js"
    }
  ```
+ - 启动服务
+ ```shell
+   npm start
+ ```
