@@ -9,3 +9,11 @@
   - EJS模板引擎界面渲染
   - passport 用户登录认证中间件
   - .....
+## 启动
+ - 项目主入口文件是：app.js
+ - 需要将package.json文件中启动脚本修改：
+ ```js
+   "scripts" : {
+      "start": "node ./app.js"
+   }
+ ```
