@@ -11,10 +11,15 @@
   - .....
 ## 目录结构
 > controllers文件夹
-  - articles.js # 文章控制器
-  - users.js    # 用户控制器
+  ```markdown
+   - articles.js   # 文章控制器
+   - users.js      # 用户控制器
+  ```
 > middlewares文件夹
-  - authorization.js # 路由登录中间件
+  ```markdown
+   - authorization.js  # 路由登录中间件
+  ```
+ 
   
 ## 启动
  - 项目主入口文件是：app.js
