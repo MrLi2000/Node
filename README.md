@@ -1,2 +1,4 @@
 # Node
-博客网站基于 node+express+mongoose 制作而成，其中包含许多第三方模块
+## 技术栈
+- 博客网站主要基于 node + express + mongoos 构成
+- 前端渲染页面使用 bootstrap + EJS + Font-Awesome 技术搭建
