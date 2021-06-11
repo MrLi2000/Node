@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <%- include("../includes/head.ejs")%>
+</head>
+<body>
+  <%- include("../includes/header.ejs")%>
+  <div class="container">
+    <div class="page-header">
+      <h1><%= title %></h1>
+    </div>
+    <div class="messages">
+      <%- include("../includes/messages.ejs")%>
+    </div>
+    <div class="content">
+        <% if(articles.length){ %>
+          <% for(var i=0; i<articles.length; i++) { %>
+            <div class="<%= `py-4 ${i && 'border-top'}` %>">
+              <% article = articles[i] %>
+              <%- include("./article.ejs")%>
+            </div>
+         
+          <% } %>
+        
+          <% if(pages > 1){ %>
+            <ul class="pagination">
+              <% pagearr=paginate({ currentPage: page, totalPages: pages }) %>
+              <% for(var i=0; i<pagearr.length; i++) { %>
+                <li class="page-item <%= (pagearr[i].isActive && pagearr[i].type === 'PAGE' && 'active') %>">
+                    <a class="page-link" href="<%= `?page=${pagearr[i].value}` %>">
+                        <% switch(pagearr[i].type){       
+                          case 'FIRST_PAGE_LINK': %>
+                            | 首页
+                            <% break; %>
+                          <% case 'PREVIOUS_PAGE_LINK': %>
+                            | 上一页
+                            <% break; %>    
+                          <% case 'PAGE': %>
+                            | <%= pagearr[i].value %>
+                            <% break; %>
+                          <% case 'ELLIPSIS': %>
+                            | ...
+                            <% break; %>
+                          <% case 'NEXT_PAGE_LINK': %>
+                            |  下一页
+                            <% break; %>
+                          <% case 'LAST_PAGE_LINK': %>
+                            |  末页
+                            <% break; %>
+                          <% } %>
+                    </a>
+                   
+                  </li>
+
+              <% } %>
+            </ul>
+          <% } %>
+        <% }else{ %>
+        
+          <h4 class="text-muted">还没有文章！&nbsp;<a href="/articles/new">发表文章</a></h4>  
+        <% } %>          
+      
+    </div>
+  </div>
+
+<%- include("../includes/footer.ejs")%>
+<%- include("../includes/foot.ejs")%>
+</body>
+</html>
+

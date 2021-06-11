@@ -1,0 +1,8 @@
+<form method="post" action="/articles/<%= article.id %>/comments" role="form">
+  <input type="hidden" name="_csrf" value="<%= csrf_token %>">
+  <div class="form-group">
+    <textarea class="form-control" type="text" rows="6" name="body" placeholder="请添加评论"></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">添加评论</button>
+</form>
+

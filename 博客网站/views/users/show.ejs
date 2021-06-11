@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <%- include("../includes/head.ejs")%>
+</head>
+<body>
+  <%- include("../includes/header.ejs")%>
+  <div class="container">
+    <div class="page-header">
+      <%  name = user.name ? user.name : user.username %>
+
+     
+        <h1><%= name %></h1>
+    </div>
+    <div class="messages">
+      <%- include("../includes/messages.ejs")%>
+    </div>
+    <div class="content">
+    </div>
+  </div>
+
+<%- include("../includes/footer.ejs")%>
+<%- include("../includes/foot.ejs")%>
+</body>
+</html>
+

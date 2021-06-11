@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">个人博客</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="<%= isActive('/articles/new') ? 'active nav-item' : 'nav-item' %>" >
+        <a class="nav-link" href="/articles/new" title="发表新文章">发表文章</a></li>
+      <% if(req.isAuthenticated()){ %>
+      <li class="nav-item<%= isActive(`/users/${req.user.id}`) && 'active' %>" >
+        <a class="nav-link" href="/users/<%= req.user.id %>" title="用户">用户></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout"  title="退出">退出</a>
+      </li>
+      <% } else { %>
+      <li class="<%= isActive('/login') ? 'active nav-item' : 'nav-item' %>" >
+        <a class="nav-link" href="/login" title="登录">登录</a>
+      </li>      
+      <% } %>
+      
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+     
+    </ul>
+  </div>
+</nav>
+

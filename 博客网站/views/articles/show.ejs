@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <%- include("../includes/head.ejs")%>
+</head>
+<body>
+  <%- include("../includes/header.ejs")%>
+  <div class="container">
+    <div class="page-header">
+      <h1><%= article.title.slice(0, 400) %></h1>
+    </div>
+    <div class="messages">
+      <%- include("../includes/messages.ejs")%>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-8">
+              <p><%= article.body.slice(0, 1000) %>
+              <div class="meta">
+                <% if (article.user) { %>
+                  <%  name = article.user.name ? article.user.name : article.user.username %>
+                  <p>作者：&nbsp;<a href="/users/<%= article.user._id %>"><%= name %></a></p>
+                <% } %> 
+                <% if (article.tags) { %>
+                  <%  tagarr = article.tags.split(',').slice(0, 10) %>
+                  <p>标签：&nbsp;
+                    <% for(var i in tagarr) { %>
+                      <i class="text-muted fa fa-tag">&nbsp;</i>
+                      <a class="tag" href="/tags/<%= tagarr[i] %>"><%= tagarr[i] %></a>&nbsp;&nbsp;    
+                    <% } %>         
+                  </p>          
+                <% } %>               
+                <p class="text-muted"><%= formatDate(article.createdAt, "%b %d, %Y at %I:%M %p") %></p>
+                
+              </div>
+            </div>
+            <div class="col-md-4">
+              <% if (!article.isNew && article.image && article.image.files && article.image.files.length) { %>
+               <img src="<%= article.image.cdnUri %>/mini_<%= article.image.files[0] %>"/>
+              <% } %>
+            </div>
+        </div>
+  
+        <form action="/articles/<%= article.id %>" method="post" onsubmit="return confirm('确定要提交吗？')">
+          <input type="hidden" name="_csrf" value="<%= csrf_token %>">
+          <a class="btn btn-outline-primary" href="/articles/<%= article.id %>/edit" title="edit">修改</a>&nbsp;
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="btn btn-link text-danger" type="submit">删除</button>
+        </form>
+      <br>
+      <h3>评论</h3>
+      <%  comarr = article.comments %>
+      <% for(var i=0; i<comarr.length; i++) { %>
+        <div class="<%= `py-3 ${i && 'border-top'}` %>">
+          <% comment = comarr[i] %>
+          <%- include("../comments/comment.ejs")%>
+        </div>
+     
+      <% } %>
+      
+      <%- include("../comments/form.ejs")%>
+     </div>
+  </div>
+
+<%- include("../includes/footer.ejs")%>
+<%- include("../includes/foot.ejs")%>
+</body>
+</html>

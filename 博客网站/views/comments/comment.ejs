@@ -1,0 +1,11 @@
+<% if (comment && comment.user) { %>
+  <%  name = comment.user.name ? comment.user.name : comment.user.username %>
+  <a href="/users/<%= comment.user._id %>"><%= name %></a> ：&nbsp;<%= comment.body.slice(0, 1000) %>
+  <form class="form-inline" role="form" method="post" action="/articles/<%= article.id %>/comments/<%= comment._id %>" onsubmit="return confirm('确认提交评论?')">
+    <input type="hidden" name="_csrf" value="<%= csrf_token %>"><span class="text-muted"><%= formatDate(comment.createdAt) %></span>
+    <input type="hidden" name="_method" value="DELETE">
+    <button class="btn btn-link text-danger" type="submit">删除</button>
+  </form>
+
+<% } %>
+

@@ -1,0 +1,23 @@
+
+<article class="article">
+  <h3><a href="/articles/<%= article._id %>" title="<%= article.title %>"><%= article.title.slice(0, 140) %></a></h3>
+  <p><%= article.body.slice(0, 400) %></p>
+  <div class="meta">
+    <span class="text-muted"><%= formatDate(article.createdAt) %></span>
+    <% if(article.user){ %>
+      &nbsp; - &nbsp;<span>作者 &nbsp;</span>
+      <% name = article.user.name ? article.user.name : article.user.username %>
+      <a href="/users/<%= article.user._id %>"><%= name %></a>
+    <% } %>
+    <% if(article.tags){ %>
+      &nbsp; - &nbsp;<span>标签 &nbsp;</span>
+      <% for(tag in article.tags.split(',').slice(0, 10)) { %>
+        <i class="text-muted fa fa-tag">&nbsp;</i> 
+        <a href="/tags/<%= tag %>"><%= tag %></a>
+        &nbsp;&nbsp;
+      <% } %>
+    <% } %>
+    
+   
+  </div>
+</article>

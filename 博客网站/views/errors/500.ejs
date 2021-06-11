@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <%- include("../includes/head.ejs")%>
+</head>
+<body>
+  <%- include("../includes/header.ejs")%>
+  <div class="container">
+    <div class="page-header">
+      <h2>500 - 内部服务器错误!</h2>
+    </div>
+    <div class="messages">
+      <%- include("../includes/messages.ejs")%>
+    </div>
+    <div class="content">
+      <pre><% error %></pre>
+    </div>
+  </div>
+
+<%- include("../includes/footer.ejs")%>
+<%- include("../includes/foot.ejs")%>
+</body>
+</html>

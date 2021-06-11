@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <%- include("../includes/head.ejs")%>
+</head>
+<body>
+  <%- include("../includes/header.ejs")%>
+  <div class="container">
+    <div class="page-header">
+      <center>
+        <h1><%= title %></h1>
+      </center>
+    </div>
+    <div class="messages">
+      <%- include("../includes/messages.ejs")%>
+    </div>
+    <div class="content">
+        <div class="text-center"><br>
+       
+        </div>
+        <div class="login">
+            <form class="form-signin" action="/users" method="post" role="form">
+              <input type="hidden" name="_csrf" value="<%= csrf_token %>">
+              <div class="form-label-group">
+                <input class="form-control" id="email" type="email" name="email" placeholder="请输入Email地址" required="" autofocus="" value="<%= user.email %>">
+                <label for="email">Email地址</label>
+              </div>
+              <div class="form-label-group">
+                <input class="form-control" id="password" type="password" name="password" placeholder="请输入密码" required="">
+                <label for="password">密码</label>
+              </div>
+              <div class="form-label-group">
+                <input class="form-control" id="name" type="text" name="name" placeholder="请输入真实姓名" required="" value="<%= user.name %>">
+                <label for="name">真名</label>
+              </div>
+              <div class="form-label-group">
+                <input class="form-control" id="password" type="text" name="username" placeholder="请输入账号" value="<%= user.username %>">
+                <label for="username">账号</label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+              <div class="my-3 text-center">去 <a class="show-signup" href="/login">登录</a></div>
+            </form>
+          </div>
+    </div>
+  </div>
+
+<%- include("../includes/footer.ejs")%>
+<%- include("../includes/foot.ejs")%>
+</body>
+</html>
+
+

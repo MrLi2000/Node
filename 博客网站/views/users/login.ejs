@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <%- include("../includes/head.ejs")%>
+</head>
+<body>
+  <%- include("../includes/header.ejs")%>
+  <div class="container">
+    <div class="page-header">
+      <center>
+        <h1><%= title %></h1>
+      </center>
+    </div>
+    <div class="messages">
+      <%- include("../includes/messages.ejs")%>
+    </div>
+    <div class="content">
+        <div class="text-center"><br>
+        
+        </div>
+        <div class="login">
+          <form class="form-signin" action="/users/session" method="post" role="form">
+            <input type="hidden" name="_csrf" value="<%= csrf_token %>">
+            <p class="col-sm-offset-2 error"></p>
+            <div class="form-label-group">
+              <input class="form-control" id="email" type="email" name="email" placeholder="请输入Email地址" required="" autofocus="">
+              <label for="email">Email地址</label>
+            </div>
+            <div class="form-label-group">
+              <input class="form-control" id="password" type="password" name="password" placeholder="请输入密码" required="">
+              <label for="password">密码</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+            <div class="my-3 text-center">去 <a class="show-signup" href="/signup">注册</a></div>
+          </form>
+        </div>
+    </div>
+  </div>
+
+<%- include("../includes/footer.ejs")%>
+<%- include("../includes/foot.ejs")%>
+</body>
+</html>
+
