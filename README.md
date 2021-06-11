@@ -10,16 +10,52 @@
   - passport 用户登录认证中间件
   - .....
 ## 目录结构
-> controllers文件夹
+> controllers
   ```markdown
    - articles.js   # 文章控制器
    - users.js      # 用户控制器
   ```
-> middlewares文件夹
+> middlewares
   ```markdown
    - authorization.js  # 路由登录中间件
   ```
- 
+> models
+  ```markdown
+   - article.js  # 存储文章信息模型
+   - user.js     # 存储用户信息模型
+  ```
+> node_modules
+  ```markdown
+   存储第三方模块
+  ```
+> public
+  ```markdown
+   静态资源文件[前端]
+  ```
+> views
+  ```markdown
+   视图模板文件[前端]
+  ```
+> app.js
+  ```markdown
+   程序主入口文件
+  ```
+> express.js
+  ```markdown
+   express应用程序基本配置，重点挂载使用的组件
+  ```
+> passport.js
+  ```markdown
+   用户认证
+  ```
+> routes.js
+  ```markdown
+   路由控制
+  ```
+> package.json
+  ```markdown
+   项目配置文件
+  ```
   
 ## 启动
  - 项目主入口文件是：app.js
